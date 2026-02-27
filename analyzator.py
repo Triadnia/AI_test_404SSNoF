@@ -9,25 +9,35 @@ import time
 load_dotenv()
 my_api_key = os.getenv("GEMINI_API_KEY") # Рев'юер, по-перше вітаю Вас, по-друге створіть файл .env і покладіть туди свій ключ за зразком із файлу .env.example
 genai.configure(api_key=my_api_key)
-model = genai.GenerativeModel('gemini-2.5-flash')
+
+model = genai.GenerativeModel('gemini-3-flash-preview') 
 
 # клас від пайдентік аби відповіді були тільки у форматі json
 class ChatAnalysis(BaseModel):
+    chat_id: str
     intent: str
     satisfaction_reasoning: str
     satisfaction: str
     quality_score: int
     agent_mistakes: List[str]
 
+class Batch(BaseModel):
+    results: List[ChatAnalysis]
+
 # промпт для створення жосткої відповіді + пайдентік зверху.
 # якщо невдоволеність не буде розуміти будемо щось тут робити
 system_prompt = """
 Ти - Senior QA Auditor у службі підтримки.
-Твоє завдання - проаналізувати діалог і повернути жорстко заданий JSON за схемою.
+Твоє завдання - проаналізувати кілька діалогів, які розділені тегами <chat id="..."> </chat> і повернути жорстко заданий JSON за схемою Batch.
+Ти повинен повернути масив results, де кожен елемент це аналіз одного чату з наданих!
+Обов'язково зберігай правильний chat_id для кожного чату!
 Правила оцінювання:
 1. intent: "проблеми з оплатою", "технічні помилки", "доступ до акаунту", "питання по тарифу", "повернення коштів" або "інше"
 2. satisfaction_reasoning: опиши свої думки, проаналізуй слова клієнта на сарказм. Чи була вирішена проблема клієнта по факту?
-3. satisfaction: "satisfied" , "neutral" , "unsatisfied". Якщо клієнт дякує, але проблема не вирішена або звучить сарказм - статус ПОВИНЕН БУТИ 'unsatisfied"
+3. satisfaction: визнач рівень задоволеності клієнта після аналізу:
+    "satisfied": клієнт точно задоволений та виражає щиру подяку. Проблема вирішена повністю
+    "neutral": клієнт відповідає сухо, не висловлює емоцій, або якщо діалог завершився без явної подяки, але й без претензій
+    "unsatisfied": клієнт роздратований, використовує сарказм, АБО коли клієнт формально прощається ввічливо, але фактично його проблема НЕ була вирішена
 4. quality_score: Оцінка роботи агента підртримки від 1 до 5 за такою шкалою:
     5: Проблему вирішено повністю, тон ввічливий, швидка і точна відповідь. Клієнт повністю задоволений
     4: Проблему вирішено, але агент відповів максимально сухо
@@ -46,52 +56,65 @@ def process_chats(input_file: str, output_file: str):
         return
     
     results = []
+    batch_size = 5
 
-    for chat in chats_data:
-        chat_id = chat.get("id", "unknown_id")
-        messages = chat.get("messages", [])
+    # тут був початок створення бранчів. Оскільки API мають свої ліміти, аби зробити більш велику вибірку було вирішено "скомкати" чати для аналізу
+    # в нашому випадку це збільшило можливу кількість аналізу з 20 на день до 100 на день. Результати аналізу були незмінними, отже воно не впливає на точність
+    for i in range(0, len(chats_data), batch_size):
+        batch = chats_data[i:i + batch_size]
 
-        chat_text = ""
-        for msg in messages:
-            if msg.get("role") == "customer":
-                speaker = "Користувач"
-            else:
-                speaker = "Агент"
-            
-            text = msg.get("text", "")
-            chat_text += f"{speaker}: {text}\n"
+        batch_text = ""
 
-        prompt = f"{system_prompt}\n Діалог для аналізу: \n {chat_text}"
+        for chat in batch:
+            chat_id = chat.get("chat_id", "unknown_id")
+            batch_text += f"<chat id='{chat_id}'>\n"
 
-        try:
-            response = model.generate_content(
-                prompt,
-                generation_config=genai.GenerationConfig( # на жаль в Gemini може часто не працювати параметр seed
-                    # тому за детермінованість буде відповідати температура
-                    temperature=0.0,
-                    response_mime_type="application/json", # потрібен формат JSON
-                    response_schema=ChatAnalysis # це шаблон для відповіді
+            for msg in chat.get("messages", []):
+                if msg.get("role") == "customer":
+                    speaker = "Користувач"
+                else:
+                    speaker = "Агент"
+                
+                batch_text += f"{speaker}: {msg.get('text', '')}\n"
+
+            batch_text += "</chat>\n\n"
+
+        prompt = f"{system_prompt}\n Діалоги для аналізу: \n {batch_text}"
+
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                response = model.generate_content(
+                    prompt,
+                    generation_config=genai.GenerationConfig(
+                        temperature=0.0,
+                        response_mime_type="application/json",
+                        response_schema=Batch
+                    )
                 )
-            )
 
-            raw_dict = json.loads(response.text)
-            # сортуємо json аби він був гарний та структурований
-            analysis_dict = {
-                "chat_id": chat_id,
-                "intent": raw_dict.get("intent"),
-                "quality_score": raw_dict.get("quality_score"),
-                "satisfaction_reasoning": raw_dict.get("satisfaction_reasoning"),
-                "satisfaction": raw_dict.get("satisfaction"),
-                "agent_mistakes": raw_dict.get("agent_mistakes", [])
-            }
+                raw_dict = json.loads(response.text)
+                batch_results = raw_dict.get("results", [])
+                
+                for item in batch_results:
+                    ordered_item = {
+                        "chat_id": item.get("chat_id", ""),
+                        "intent": item.get("intent", ""),
+                        "quality_score": item.get("quality_score", 0),
+                        "satisfaction_reasoning": item.get("satisfaction_reasoning", ""),
+                        "satisfaction": item.get("satisfaction", ""),
+                        "agent_mistakes": item.get("agent_mistakes", [])
+                    }
+                    results.append(ordered_item)
 
-            results.append(analysis_dict)
+                print(f"Успішно проаналізовано пачку з {len(batch)} чатів")
+                break
 
-        except Exception as e:
-            # якщо світло зникне
-            print(f"Помилка при аналізі чату {chat_id}: {e}")
-
-        time.sleep(5) #Геміні дає 15 запитів у хвилину, тому потрібно зробити обмеження
+            except Exception as e:
+                print(f"Збій при аналізі (Спроба {attempt + 1} з {max_retries}): {e}")
+                time.sleep(10)
+        
+        time.sleep(20) # пауза для обходу лімітів у 5 запитів на хвилину
     
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
