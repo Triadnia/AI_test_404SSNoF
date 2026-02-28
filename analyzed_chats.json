@@ -1,0 +1,1078 @@
+[
+    {
+        "chat_id": "1",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is satisfied because the payment was successfully reprocessed and they expressed gratitude ('Okay, great!', 'thanks'), even though the agent was rude and incorrectly blamed the client for the error.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "incorrect_info"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "2",
+        "intent": "account_access",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is unsatisfied and used sarcasm ('stupid password') while expressing frustration with the verification process. The issue was not resolved, only escalated.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "3",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is unsatisfied. The agent was dismissive ('I don't have time') and ignored the client's specific question about the account update. Although the client was polite, the problem remains unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "4004",
+        "intent": "refund_request",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is unsatisfied and used heavy sarcasm ('Oh, great', 'Happy now?'). The agent failed to provide a refund and simply escalated the case.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "5",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The client is unsatisfied and suspicious of the agent's request for their password. The agent committed a security breach by asking for credentials and failed to resolve the issue.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution",
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "6",
+        "intent": "account_access",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client's issue with the blank page was not resolved during the chat. The agent attempted basic troubleshooting but ultimately had to escalate the ticket. The client was not rude but expressed some confusion about the escalation process.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "7",
+        "intent": "other",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was explicitly rude, telling the client they are not a priority and that they don't have all day. The issue was not resolved and had to be moved to a supervisor. The client is clearly frustrated.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "8",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "Despite the agent being incredibly rude and dismissive throughout the call, the client's account was eventually fixed after escalation. The client expressed gratitude for the resolution, though the agent's behavior was unacceptable.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [
+            "rude_tone"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "9",
+        "intent": "refund_request",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent followed all protocols, processed the refund, and explained the timeline clearly. However, the client remained unsatisfied and demanding, wanting the money immediately, which is outside the agent's control.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "10",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client's request for a refund was not met; instead, they were offered store credit. The client ended the conversation with heavy sarcasm ('Great, just what I wanted'), indicating high dissatisfaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "11",
+        "intent": "refund_request",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent resolved the refund request efficiently. However, the client remained sarcastic ('I suppose') and annoyed due to the friction of being transferred and having to repeat information.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "12",
+        "intent": "account_access",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client was highly frustrated by the agent's initial attempt to escalate the cancellation. The final comment 'Thanks for nothing' is a clear indicator of sarcasm and dissatisfaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "13",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The interaction ended without a resolution as the client and agent disagreed on account details. The client's request for a supervisor and comment about 'someone who actually cares' shows clear dissatisfaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "14",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent identified a system-wide issue and fixed the client's access immediately. The client's 'Whatever' is dry, but the issue was fully resolved without further complaint.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "15",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent was unable to find the account and blamed the client for the error. The issue was not resolved, and the client ended the chat in a state of annoyance.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "16",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client uses sarcasm ('So you can't even fix it yourself?', 'Maybe they can actually help') and is clearly annoyed that the agent cannot help directly and asks for the same information multiple times. The issue is not resolved, only escalated.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "17",
+        "intent": "technical_error",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent successfully diagnosed a sync issue and provided a fix. The client confirmed the resolution and thanked the agent.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "2018",
+        "intent": "tariff_question",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The client is gathering information about pricing and features. The agent provides clear and helpful answers. The chat ends neutrally as the client is still in the inquiry phase.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "19",
+        "intent": "payment_issue",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The client is frustrated because the agent's explanation contradicts the system's error message. The agent becomes defensive and condescending ('Ma'am... you need to be patient'), leaving the issue unresolved and the client unhappy.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "20",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent was helpful and polite, resolving the account access issue quickly. The client expressed clear satisfaction and gratitude.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "21",
+        "intent": "other",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is frustrated and uses sarcasm ('Great, so you're just going to ignore my question'). The agent failed to address the core issue of the product feature, and the dialogue ends without a resolution.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "22",
+        "intent": "account_access",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The client's technical issue was resolved directly by the agent after a brief moment of confusion regarding escalation. The client expressed clear gratitude at the end.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "23",
+        "intent": "other",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is annoyed by the agent's defensive tone and the decision to escalate the issue further. The client uses phrases like 'This is ridiculous,' indicating dissatisfaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "24",
+        "intent": "refund_request",
+        "quality_score": 3,
+        "satisfaction_reasoning": "Although the agent was initially dismissive and rude, the client's request for a supervisor led to a successful refund. The client expressed genuine appreciation for the final outcome.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "incorrect_info"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "25",
+        "intent": "refund_request",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The client is openly hostile and sarcastic, calling the staff 'incompetent' and ending with a dry 'Thanks, I guess.' Despite the refund being processed, the client remains unhappy.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "26",
+        "intent": "refund_request",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The client received the refund, but remained annoyed and dismissive throughout the call, using terms like 'nonsense' and 'don't bother'. The resolution did not mitigate the client's negative attitude.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "27",
+        "intent": "payment_issue",
+        "quality_score": 5,
+        "satisfaction_reasoning": "While the agent fixed the payment issue, the client expressed clear annoyance with the word 'Finally' and criticized the company's recurring technical problems.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2028",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent identified the cause of the login failure and unlocked the account. The client confirmed the solution worked and expressed gratitude.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "29",
+        "intent": "payment_issue",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The primary issue was resolved and the client was thankful, but the agent failed to address the client's follow-up question regarding the root cause of the failure.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "ignored_question"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "30",
+        "intent": "refund_request",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was extremely unprofessional and rude, blaming the client for the issue. The client's final expression of gratitude was sarcastic, highlighting the poor service experience.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "31",
+        "intent": "payment_issue",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is clearly frustrated, using phrases like 'This is ridiculous' and 'I don't have time for this'. The issue was not resolved within the dialogue, and the agent's line of questioning about account activity further annoyed the client.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "32",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent successfully identified the issue and reset the account. The client explicitly expressed gratitude, stating 'that worked! Thanks so much'.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "33",
+        "intent": "tariff_question",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent provided clear information about the pricing tiers and even offered to check for discounts. The client made an informed decision to stay with the premium plan and thanked the agent for the help.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "34",
+        "intent": "refund_request",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent was helpful and immediately offered a refund upon verifying the warranty status. The client was very pleased with the quick resolution.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "35",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent committed a major security error by asking for the client's password twice. The client became increasingly hostile and dismissive ('Whatever. Just fix it'), and the problem remained unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2036",
+        "intent": "account_access",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The agent successfully resolved the access issue, but the client used heavy sarcasm ('Just peachy', 'Thanks for nothing') indicating they remained annoyed by the process.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "37",
+        "intent": "payment_issue",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was outright rude and threatening. The client used sarcasm ('That's convenient') and the issue was not resolved, only escalated after a confrontation.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "38",
+        "intent": "technical_error",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The problem was not resolved during the call and required escalation. The client expressed clear annoyance and frustration with the delay and the agent's inability to fix it directly.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "39",
+        "intent": "tariff_question",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent was dismissive and used a 'take it or leave it' attitude. The client's questions about value were not adequately addressed, leading to a lack of resolution or sale.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "40",
+        "intent": "refund_request",
+        "quality_score": 4,
+        "satisfaction_reasoning": "While the agent successfully processed the refund and remained professional, the client remained annoyed throughout the interaction, using dismissive language like 'Whatever'.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "41",
+        "intent": "account_access",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The client's issue was resolved via password reset, but the client remained annoyed throughout the interaction and used sarcasm ('Thanks, I guess') at the end.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "42",
+        "intent": "other",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The issue was not resolved, only escalated. The client had to repeat their order number and used sarcasm ('Okay... great') to express skepticism about the outcome.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "43",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent failed to resolve the login issue and escalated it, which frustrated the client. The client's final response ('Whatever... I guess') indicates clear dissatisfaction and sarcasm.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "44",
+        "intent": "tariff_question",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was unprofessional and dismissive, using a rude justification for the pricing ('we need to make money'). The client was clearly annoyed and decided to terminate the relationship.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "45",
+        "intent": "other",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The agent initially provided incorrect status information but corrected it and offered a solution by expediting the order. The client did not provide a final response to the offer.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "incorrect_info"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "46",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client uses sarcasm and is clearly frustrated. Although they are within the return window for a faulty product, the agent is dismissive and incorrectly implies the policy prevents a refund, leaving the issue unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "47",
+        "intent": "account_access",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client uses passive-aggressive language and is unhappy with the rigid security process. The agent follows protocol but fails to de-escalate or reach a resolution.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "48",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is extremely sarcastic and angry. The agent identifies a payment issue but does not offer a way to resolve the client's dispute about the unpaid shipping costs, leaving the problem unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "49",
+        "intent": "other",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The client was initially resistant but the agent remained polite and followed protocol. The request to cancel the subscription was successfully resolved.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "50",
+        "intent": "tariff_question",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is seeking information. The agent was somewhat vague and unprofessional, and the chat ends before the client's questions about storage are fully answered.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "51",
+        "intent": "tariff_question",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is clearly annoyed by the discrepancy between the marketing email and the agent's information. Although the agent admitted a company error, they offered no resolution, discount, or extension to honor the 30-day promise, leaving the client frustrated.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "52",
+        "intent": "payment_issue",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client's issue with the pending payment was not resolved during the chat. The client expressed annoyance ('I don't see the point') and only reluctantly agreed to the escalation ('Fine'), indicating a lack of satisfaction with the immediate support provided.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "53",
+        "intent": "tariff_question",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The agent successfully identified the system error and corrected the pricing plan to the original $50. However, the client remained hostile and sarcastic ('About time', 'You're just trying to stall'), and the dialog ended with the client still grumbling about the next bill.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "54",
+        "intent": "refund_request",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was outright rude and dismissive, blaming the customer for not reading reviews and using unprofessional language ('Sorry, buddy'). The client's problem was not resolved, and they ended the chat with a sarcastic 'Thank you for nothing'.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "55",
+        "intent": "refund_request",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was condescending and blamed the client for the issue. The client used heavy sarcasm ('Good luck with that escalation') and was clearly offended by the agent's tone and the accusation of making threats.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "56",
+        "intent": "other",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The client is highly sarcastic throughout the interaction. The agent initially promises to resolve the issue but then abruptly states there is no resolution, leaving the client's shipping problem completely unaddressed.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "57",
+        "intent": "tariff_question",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is annoyed by the pricing structure and feels targeted. While the agent provides a logical explanation and offers to check the account, the client remains dissatisfied and threatens negative reviews.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "58",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client uses sarcasm to express a lack of confidence in the agent. The agent's inability to resolve the account access issue remotely and the requirement for a physical store visit leaves the client unsatisfied.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2059",
+        "intent": "refund_request",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is hostile and sarcastic. The agent follows standard procedure by escalating the case to a supervisor, but since the refund is not immediately granted, the client remains angry.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "60",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent makes significant errors, including asking for a password (a security risk) and misrecording information. The client feels ignored and the account remains locked at the end of the conversation.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "61",
+        "intent": "refund_request",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent was polite, quickly identified the error, and processed a full refund. The client expressed genuine gratitude and the issue was fully resolved.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "2062",
+        "intent": "other",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent used a condescending tone and was dismissive of the client's frustration regarding the shipping delay. The client expressed disappointment and the core issue of the delay was not resolved to their satisfaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "63",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent failed to resolve the login issue and incorrectly requested the user's password, which is a security risk. The client was highly sarcastic and frustrated throughout the interaction.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "64",
+        "intent": "technical_error",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent dismissed the client's report of technical issues and shifted the blame to the user. The client used sarcasm and felt their concerns were ignored, leaving the problem unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "65",
+        "intent": "payment_issue",
+        "quality_score": 4,
+        "satisfaction_reasoning": "Although the agent successfully resolved the payment issue and processed a refund, the client remained annoyed and used dismissive language like 'Whatever'. According to the rules, this level of annoyance counts as unsatisfied.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "66",
+        "intent": "technical_error",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent was polite and efficient. The technical glitch was identified and resolved quickly, and the client expressed genuine gratitude.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "67",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was dismissive and rude from the start, blaming the client for the issue. The problem remained unresolved, and the agent's tone was unprofessional.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "68",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was outright insulting, calling the client 'dramatic'. The client used sarcasm ('Great customer service') to express their frustration. No help was provided.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "69",
+        "intent": "tariff_question",
+        "quality_score": 4,
+        "satisfaction_reasoning": "The agent provided the requested information, although they seemed a bit slow and uncertain. The client was polite but decided not to proceed with the upgrade.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "2070",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent initially blamed the client for a cancellation that was actually a system error. While a refund was eventually processed, the client was forced to provide unnecessary proof for an error they didn't commit.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "71",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is clearly frustrated and uses sarcasm ('Thanks a lot') after the agent's dismissive attitude led to the account being locked. The issue was not resolved during the conversation.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "72",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent was polite, explained the cause of the delay, identified the specific issue (inactivity), and resolved it immediately. The client expressed gratitude.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "73",
+        "intent": "payment_issue",
+        "quality_score": 4,
+        "satisfaction_reasoning": "While the agent was professional and provided a resolution timeline, the client remained highly sarcastic and annoyed throughout ('You people really know how to make things easy', 'Just great'). The client's tone indicates a lack of satisfaction with the service experience despite the technical fix.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "74",
+        "intent": "payment_issue",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was outright rude, telling the client they were 'too slow', and initially dismissed the problem before escalating it. The client's problem remains unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "75",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent asked for information the client claimed to have already provided, leading to frustration. The issue was escalated rather than resolved, and the client described the situation as 'ridiculous'.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "ignored_question",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "2076",
+        "intent": "tariff_question",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client accepted a discount but remained skeptical and explicitly stated they felt misled by the pricing information, indicating the core issue of trust was not resolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "77",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is clearly annoyed by the system failure and the agent's repetitive, unhelpful advice to try again, which the client had already done.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "incorrect_info"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "78",
+        "intent": "other",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client uses heavy sarcasm like 'isn't that just peachy' and 'thanks for nothing' because the agent failed to provide an ETA and simply escalated the issue.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "unnecessary_escalation",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "79",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is frustrated because the agent's claim of incorrect card info contradicts the client's experience, and the dialogue ends without a resolution.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "incorrect_info"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "80",
+        "intent": "payment_issue",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is dissatisfied with the new system's failure and the discovery of a previous billing error, which the agent only admitted after being questioned.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "incorrect_info"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "81",
+        "intent": "tariff_question",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The client is genuinely interested in the premium plan, asks productive clarifying questions, and expresses that the plan is worth the investment. The agent provides clear, helpful information, leading to a successful sales inquiry.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "82",
+        "intent": "payment_issue",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is annoyed by a 4-day delay and uses sarcasm ('not asking for the moon'). Although the agent offers a discount and a resolution timeline, the client remains grumpy and expresses 'Unbelievable' frustration, indicating the experience was poor despite the technical resolution.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2083",
+        "intent": "payment_issue",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is skeptical and uses sarcasm ('Great. Just what I wanted to hear'). The final 'Thank you, I suppose' shows that while the payment was processed, the client was not happy with the repetitive process and the agent's adherence to procedure.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2084",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is extremely frustrated and uses sarcasm ('Really?', 'Unbelievable'). The agent is unable to find the order details independently, and the client refuses to provide them, resulting in no resolution and a deadlock.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2085",
+        "intent": "tariff_question",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client gets the information they need but is clearly annoyed by the agent's unnecessary escalation to a supervisor for a basic pricing question. The interaction ends politely but was inefficient.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "86",
+        "intent": "tariff_question",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is clearly frustrated because the agent provided incorrect pricing information initially and then confirmed a price increase despite the client having already paid for a year upfront. The core issue of the price hike was not resolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "87",
+        "intent": "other",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent successfully identified that the package was lost and initiated a replacement. The client's response is dry ('better than nothing'), indicating they are not thrilled about the delay, but the problem was technically resolved.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "88",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is highly annoyed and uses sarcasm ('Are you even listening?', 'Are you kidding me?'). The agent failed to de-escalate the situation, and the client eventually gave up without the refund being processed.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "2089",
+        "intent": "account_access",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent quickly identified a technical glitch and fixed the account access issue. The client expressed genuine gratitude and was very happy with the direct resolution.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "90",
+        "intent": "account_access",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The client is extremely frustrated and sarcastic throughout the interaction. The agent failed to address the problem, requested information the client found redundant, and then escalated/reassigned the case without any progress, leaving the client angry.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution",
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "91",
+        "intent": "other",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is frustrated because they received conflicting information and the issue remains unresolved. The client's tone is annoyed, specifically when demanding a follow-up.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "92",
+        "intent": "tariff_question",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was extremely rude and dismissive. The client expressed direct frustration and ultimately decided to switch to a competitor, indicating a complete failure in service.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution",
+            "ignored_question"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "93",
+        "intent": "payment_issue",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent quickly identified the billing error, corrected it, and communicated clearly. The client expressed genuine relief and gratitude.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    },
+    {
+        "chat_id": "94",
+        "intent": "refund_request",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The agent provided confusing and contradictory information regarding the refund status. The client is clearly annoyed, using the phrase 'let's get this over with,' and the problem is not yet resolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "incorrect_info",
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "95",
+        "intent": "tariff_question",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was openly hostile and insulting ('Look, lady', 'Oh, boo-hoo'). The client is shocked by the lack of professionalism and the issue was escalated only after the agent's refusal to help.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone",
+            "no_resolution",
+            "unnecessary_escalation"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "96",
+        "intent": "account_access",
+        "quality_score": 2,
+        "satisfaction_reasoning": "The client is unable to access their account. The agent states there is no resolution available and refuses to perform a password reset, leaving the client frustrated and the issue completely unresolved.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "97",
+        "intent": "refund_request",
+        "quality_score": 1,
+        "satisfaction_reasoning": "The agent was unprofessional and rude, using phrases like 'Look, lady' and 'calm down'. Although a refund was eventually promised, the client was highly offended by the agent's conduct and the recurring shipping issues.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "rude_tone"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "98",
+        "intent": "refund_request",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client uses heavy sarcasm ('real thrill-ride', 'make a customer feel loved') to express their annoyance with the company's policy. The agent followed protocol but did not resolve the refund request immediately, leading to an escalation.",
+        "satisfaction": "unsatisfied",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "99",
+        "intent": "technical_error",
+        "quality_score": 3,
+        "satisfaction_reasoning": "The client is dismissive and annoyed ('Yeah, yeah. Just get it fixed already'). The agent followed the correct procedure by escalating to the technical team, but since there was no immediate fix, the client remained skeptical.",
+        "satisfaction": "neutral",
+        "agent_mistakes": [
+            "no_resolution"
+        ],
+        "passive_aggression": true
+    },
+    {
+        "chat_id": "100",
+        "intent": "payment_issue",
+        "quality_score": 5,
+        "satisfaction_reasoning": "The agent identified a system glitch and resolved the payment issue promptly. The client expressed clear gratitude and was satisfied with the outcome.",
+        "satisfaction": "satisfied",
+        "agent_mistakes": [],
+        "passive_aggression": false
+    }
+]
