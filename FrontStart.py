@@ -119,22 +119,36 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 .dialog-wrapper::-webkit-scrollbar-track { background: transparent; }
 .dialog-wrapper::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
 
-.bubble-row-client { display: flex; justify-content: flex-end; margin-bottom: 10px; }
-.bubble-row-agent  { display: flex; justify-content: flex-start; margin-bottom: 10px; }
+.bubble-row-client {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.bubble-row-agent {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    width: 100%;
+}
 
 .bubble {
     padding: 10px 14px;
     border-radius: 14px;
     max-width: 76%;
+    min-width: 0;
     font-size: 13.5px;
     line-height: 1.5;
     animation: fadeUp 0.3s ease;
+    word-break: break-word;
+    box-sizing: border-box;
 }
 
 .bubble-client {
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     border-radius: 14px 14px 2px 14px;
     color: #e0eaff;
+    margin-left: auto;
 }
 
 .bubble-agent {
@@ -142,6 +156,7 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 14px 14px 14px 2px;
     color: #cbd5e1;
+    margin-right: auto;
 }
 
 .bubble-label {
@@ -495,14 +510,16 @@ with center:
     for msg in selected_chat["messages"]:
         if msg["role"] == "client":
             dialog_html += (
-                '<div class="bubble-row-client"><div>'
-                '<div class="bubble-label" style="text-align:right;">Клієнт</div>'
+                '<div class="bubble-row-client">'
+                '<div style="display:flex;flex-direction:column;align-items:flex-end;max-width:76%;">'
+                '<div class="bubble-label">Клієнт</div>'
                 '<div class="bubble bubble-client">' + msg["text"] + '</div>'
                 '</div></div>'
             )
         else:
             dialog_html += (
-                '<div class="bubble-row-agent"><div>'
+                '<div class="bubble-row-agent">'
+                '<div style="display:flex;flex-direction:column;align-items:flex-start;max-width:76%;">'
                 '<div class="bubble-label">Агент</div>'
                 '<div class="bubble bubble-agent">' + msg["text"] + '</div>'
                 '</div></div>'
@@ -558,7 +575,7 @@ with right:
             )
         errors_html += '</div>'
     else:
-        errors_html = '<div class="errors-empty">✓ Немає помилок</div>'
+        errors_html = '<div class="errors-empty">✓ Немає мінету</div>'
 
     st.markdown(
         '<div class="full-panel content-fade">'
