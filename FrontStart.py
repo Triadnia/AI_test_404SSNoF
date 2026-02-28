@@ -26,6 +26,17 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 #MainMenu, footer, header { visibility: hidden; }
 [data-testid="stDecoration"] { display: none; }
 
+/* Стиль для перемикача мови */
+div[data-testid="stRadio"] > div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: rgba(255,255,255,0.03);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+}
+
 .metrics-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -230,9 +241,6 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 [data-testid="stHorizontalBlock"] { gap: 14px !important; }
 [data-testid="column"] > div { height: 100%; }
 
-.stMarkdown p { margin: 0; }
-h1 { font-family: 'Space Grotesk', sans-serif !important; font-size: 20px !important; font-weight: 600 !important; margin-bottom: 20px !important; color: #f1f5f9 !important; }
-
 div[data-testid="stJson"] {
     background: rgba(0,0,0,0.3) !important;
     border: 1px solid rgba(255,255,255,0.06) !important;
@@ -349,29 +357,82 @@ div[data-testid="stJson"] {
     border: 1px solid rgba(34,197,94,0.15);
     border-radius: 10px;
 }
-
-[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stVerticalBlock"] {
-    background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 18px;
-}
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------------------------------------------------------
-# ДАНІ
-# ---------------------------------------------------------------
-
-MISTAKE_LABELS = {
-    "no_resolution":    "No solution",
-    "ignored_question": "Ignored question",
-    "rude_tone":        "Rude tone",
-    "incorrect_info": "Incorrect info",
-    "unnecessary_escalation": "Unnecessary escalation"
+TRANSLATIONS = {
+    "EN": {
+        "file_chat": "chats_dataset.json",
+        "avg_score": "Average score",
+        "from_0_5": "from 0 to 5",
+        "prob_chats": "Problem chats",
+        "req_attn": "require attention",
+        "cor_intents": "Correct Intents",
+        "ai_vs_gt": "AI vs Ground Truth",
+        "acc_agg": "Accurate Aggression",
+        "list_of_chats": "📂 List of chats",
+        "dialog": "💬 Dialog",
+        "ai_analysis": "📊 AI Analysis",
+        "type_req": "Type of request",
+        "json_data": "JSON data",
+        "agent_errors": "Agent errors",
+        "no_errors": "✓ No errors",
+        "err_type": "Error type",
+        "err_desc": "Description",
+        "client": "Client",
+        "agent": "Agent",
+        "open": "Open",
+        "satisfied": "Satisfied",
+        "unsatisfied": "Unsatisfied",
+        "not_defined": "Not defined",
+        "mistakes": {
+            "no_resolution": "No solution",
+            "ignored_question": "Ignored question",
+            "rude_tone": "Rude tone",
+            "incorrect_info": "Incorrect info",
+            "unnecessary_escalation": "Unnecessary escalation"
+        }
+    },
+    "UK": {
+        "file_chat": "chats_dataset_uk.json",
+        "avg_score": "Середня оцінка",
+        "from_0_5": "з 0 до 5",
+        "prob_chats": "Проблемні чати",
+        "req_attn": "потребують уваги",
+        "cor_intents": "Правильні теми",
+        "ai_vs_gt": "ШІ проти Оригіналу",
+        "acc_agg": "Точність агресії",
+        "list_of_chats": "📂 Список чатів",
+        "dialog": "💬 Діалог",
+        "ai_analysis": "📊 ШІ Аналіз",
+        "type_req": "Тип звернення",
+        "json_data": "JSON дані",
+        "agent_errors": "Помилки агента",
+        "no_errors": "✓ Немає помилок",
+        "err_type": "Тип помилки",
+        "err_desc": "Опис",
+        "client": "Клієнт",
+        "agent": "Агент",
+        "open": "Відкрити",
+        "satisfied": "Задоволений",
+        "unsatisfied": "Незадоволений",
+        "not_defined": "Не визначено",
+        "mistakes": {
+            "no_resolution": "Відсутність рішення",
+            "ignored_question": "Ігнорування питання",
+            "rude_tone": "Грубий тон",
+            "incorrect_info": "Невірна інформація",
+            "unnecessary_escalation": "Зайва ескалація"
+        }
+    }
 }
 
-# Словник для перекладу старих сценаріїв у нові AI інтенти
+col_space, col_lang = st.columns([8, 2])
+with col_lang:
+    lang = st.radio("Language", ["EN", "UK"], horizontal=True, label_visibility="collapsed")
+
+t = TRANSLATIONS[lang]
+
 INTENT_MAPPING = {
     "payment issues": "payment_issue",
     "technical errors": "technical_error",
@@ -381,10 +442,20 @@ INTENT_MAPPING = {
     "other": "other"
 }
 
-if "chats" not in st.session_state:
-    with open("chats_dataset.json", encoding="utf-8") as f:
-        chats_data = json.load(f)
-        chats_raw = chats_data.get("dialogs", chats_data) if isinstance(chats_data, dict) else chats_data
+if "lang" not in st.session_state:
+    st.session_state.lang = lang
+
+if "chats" not in st.session_state or st.session_state.lang != lang:
+    st.session_state.lang = lang
+    
+    chat_file_name = t["file_chat"]
+    try:
+        with open(chat_file_name, encoding="utf-8") as f:
+            chats_data = json.load(f)
+            chats_raw = chats_data.get("dialogs", chats_data) if isinstance(chats_data, dict) else chats_data
+    except FileNotFoundError:
+        st.error(f"Файл {chat_file_name} не знайдено! Будь ласка, створіть його.")
+        st.stop()
 
     with open("analyzed_chats.json", encoding="utf-8") as f:
         loaded_json = json.load(f)
@@ -399,17 +470,17 @@ if "chats" not in st.session_state:
     for i, c in enumerate(chats_raw):
         cid = str(c.get("id", c.get("chat_id"))) 
         an  = analysis_map.get(cid, {})
-        sat = "Satisfied" if an.get("satisfaction") == "satisfied" else "Unsatisfied"
+        
+        sat_en = an.get("satisfaction", "unsatisfied")
+        sat = t["satisfied"] if sat_en == "satisfied" else t["unsatisfied"]
 
         mistakes = an.get("agent_mistakes", [])
-        errors   = [{"type": MISTAKE_LABELS.get(m, m), "description": ""} for m in mistakes]
+        errors   = [{"type": t["mistakes"].get(m, m), "description": ""} for m in mistakes]
 
-        # Логіка для порівняння Ground Truth та AI Аналізу
         true_scenario = c.get("scenario", "other")
         true_intent = INTENT_MAPPING.get(true_scenario, "other")
-        analyzed_intent = an.get("intent", "Не визначено")
+        analyzed_intent = an.get("intent", t["not_defined"])
         
-        # Обробка опечатки та типу даних пасивної агресії
         true_pa_str = str(c.get("passive_agression", "False")).lower()
         true_pa = True if true_pa_str == "true" else False
         analyzed_pa = an.get("passive_aggression", False)
@@ -431,24 +502,20 @@ if "chats" not in st.session_state:
                 "intent_correct": true_intent == analyzed_intent,
                 "pa_correct": true_pa == analyzed_pa
             },
-            "reason": an.get("satisfaction_reasoning") if sat == "Unsatisfied" else None,
+            "reason": an.get("satisfaction_reasoning") if sat == t["unsatisfied"] else None,
             "errors": errors,
         })
 
     st.session_state.chats = chats
-
-if "selected_chat_id" not in st.session_state:
     st.session_state.selected_chat_id = 1
 
-# ---------------------------------------------------------------
-# МЕТРИКИ (НОВИЙ БЛОК)
-# ---------------------------------------------------------------
+selected_chat = next(c for c in st.session_state.chats if c["id"] == st.session_state.selected_chat_id)
+
 total      = len(st.session_state.chats)
 avg_score  = round(sum(c["analysis"]["quality_score"] for c in st.session_state.chats) / total, 1) if total else 0
-satisfied  = sum(1 for c in st.session_state.chats if c["analysis"]["satisfaction"] == "Satisfied")
+satisfied  = sum(1 for c in st.session_state.chats if c["analysis"]["satisfaction"] == t["satisfied"])
 issues     = total - satisfied
 
-# Підраховуємо правильні відповіді ІІ
 correct_intents = sum(1 for c in st.session_state.chats if c["metrics"]["intent_correct"])
 correct_pa = sum(1 for c in st.session_state.chats if c["metrics"]["pa_correct"])
 
@@ -456,50 +523,41 @@ accent_colors = {
     "score":   "#facc15",
     "issues":  "#ef4444",
     "intents": "#3b82f6",
-    "pa":      "#a855f7", # Крутий фіолетовий колір для агресії
+    "pa":      "#a855f7",
 }
 
 st.markdown(
     '<div class="metrics-row">'
-    # 1. Середня оцінка
     '<div class="metric-card" style="--accent:' + accent_colors["score"] + '">'
     '<div class="metric-value">' + str(avg_score) + '</div>'
-    '<div class="metric-label">Average score</div>'
-    '<div class="metric-sub">from 0 to 5</div>'
+    '<div class="metric-label">' + t["avg_score"] + '</div>'
+    '<div class="metric-sub">' + t["from_0_5"] + '</div>'
     '</div>'
-    # 2. Проблемні чати
     '<div class="metric-card" style="--accent:' + accent_colors["issues"] + '">'
     '<div class="metric-value">' + str(issues) + '</div>'
-    '<div class="metric-label">Problem chats</div>'
-    '<div class="metric-sub">require attention</div>'
+    '<div class="metric-label">' + t["prob_chats"] + '</div>'
+    '<div class="metric-sub">' + t["req_attn"] + '</div>'
     '</div>'
-    # 3. Правильні теми
     '<div class="metric-card" style="--accent:' + accent_colors["intents"] + '">'
     '<div class="metric-value">' + str(correct_intents) + '<span style="font-size:18px;color:#64748b;">/' + str(total) + '</span></div>'
-    '<div class="metric-label">Correct Intents</div>'
-    '<div class="metric-sub">AI vs Ground Truth</div>'
+    '<div class="metric-label">' + t["cor_intents"] + '</div>'
+    '<div class="metric-sub">' + t["ai_vs_gt"] + '</div>'
     '</div>'
-    # 4. Правильна агресія
     '<div class="metric-card" style="--accent:' + accent_colors["pa"] + '">'
     '<div class="metric-value">' + str(correct_pa) + '<span style="font-size:18px;color:#64748b;">/' + str(total) + '</span></div>'
-    '<div class="metric-label">Accurate Aggression</div>'
-    '<div class="metric-sub">AI vs Ground Truth</div>'
+    '<div class="metric-label">' + t["acc_agg"] + '</div>'
+    '<div class="metric-sub">' + t["ai_vs_gt"] + '</div>'
     '</div>'
     '</div>',
     unsafe_allow_html=True
 )
 
-selected_chat = next(c for c in st.session_state.chats if c["id"] == st.session_state.selected_chat_id)
-
 left, center, right = st.columns([1, 2, 1])
 
-# ---------------------------------------------------------------
-# ЛІВА ПАНЕЛЬ — список чатів
-# ---------------------------------------------------------------
 with left:
     st.markdown(
         '<div class="full-panel" style="margin-bottom:4px;border-radius:16px 16px 0 0;border-bottom:none;">'
-        '<div class="panel-title" style="margin-bottom:0;">📂 List of chats</div>'
+        '<div class="panel-title" style="margin-bottom:0;">' + t["list_of_chats"] + '</div>'
         '</div>',
         unsafe_allow_html=True
     )
@@ -511,8 +569,8 @@ with left:
             preview_msg  = chat["messages"][0]["text"]
             chat_id      = chat["id"]
             chat_id_label = chat["chat_id"]
-            badge_icon   = "✓" if sat == "Satisfied" else "✗"
-            badge_color  = "#4ade80" if sat == "Satisfied" else "#f87171"
+            badge_icon   = "✓" if sat == t["satisfied"] else "✗"
+            badge_color  = "#4ade80" if sat == t["satisfied"] else "#f87171"
             stars        = "★" * score + "☆" * (5 - score)
             border_color = "rgba(59,130,246,0.5)" if is_active else "rgba(255,255,255,0.06)"
             bg_color     = "rgba(59,130,246,0.10)" if is_active else "rgba(255,255,255,0.02)"
@@ -529,13 +587,10 @@ with left:
                 unsafe_allow_html=True
             )
 
-            if st.button("Open " + chat_id_label, key="btn_" + chat_id_label, use_container_width=True):
+            if st.button(f"{t['open']} " + chat_id_label, key="btn_" + chat_id_label, use_container_width=True):
                 st.session_state.selected_chat_id = chat_id
                 st.rerun()
 
-# ---------------------------------------------------------------
-# ЦЕНТРАЛЬНА ПАНЕЛЬ — діалог
-# ---------------------------------------------------------------
 with center:
     reason_html = ('<div class="reason-box">⚠ ' + selected_chat["reason"] + '</div>') if selected_chat["reason"] else ""
 
@@ -545,7 +600,7 @@ with center:
             dialog_html += (
                 '<div class="bubble-row-client">'
                 '<div style="display:flex;flex-direction:column;align-items:flex-end;max-width:76%;">'
-                '<div class="bubble-label">Client</div>'
+                '<div class="bubble-label">' + t["client"] + '</div>'
                 '<div class="bubble bubble-client">' + msg["text"] + '</div>'
                 '</div></div>'
             )
@@ -553,27 +608,24 @@ with center:
             dialog_html += (
                 '<div class="bubble-row-agent">'
                 '<div style="display:flex;flex-direction:column;align-items:flex-start;max-width:76%;">'
-                '<div class="bubble-label">Agent</div>'
+                '<div class="bubble-label">' + t["agent"] + '</div>'
                 '<div class="bubble bubble-agent">' + msg["text"] + '</div>'
                 '</div></div>'
             )
 
     st.markdown(
         '<div class="full-panel content-fade">'
-        '<div class="panel-title">💬 Dialog — ' + selected_chat["chat_id"] + '</div>'
+        '<div class="panel-title">' + t["dialog"] + ' — ' + selected_chat["chat_id"] + '</div>'
         + reason_html
         + '<div class="dialog-wrapper">' + dialog_html + '</div>'
         '</div>',
         unsafe_allow_html=True
     )
 
-# ---------------------------------------------------------------
-# ПРАВА ПАНЕЛЬ — аналітика
-# ---------------------------------------------------------------
 with right:
     analysis     = selected_chat["analysis"]
     score        = analysis["quality_score"]
-    sat_color    = "#4ade80" if analysis["satisfaction"] == "Satisfied" else "#f87171"
+    sat_color    = "#4ade80" if analysis["satisfaction"] == t["satisfied"] else "#f87171"
     satisfaction = analysis["satisfaction"]
     intent       = analysis["intent"]
 
@@ -596,7 +648,7 @@ with right:
         errors_html = (
             '<div class="errors-table">'
             '<div class="errors-header">'
-            '<span>Error type</span><span>Description</span>'
+            '<span>' + t["err_type"] + '</span><span>' + t["err_desc"] + '</span>'
             '</div>'
         )
         for err in errors:
@@ -608,19 +660,19 @@ with right:
             )
         errors_html += '</div>'
     else:
-        errors_html = '<div class="errors-empty">✓ No errors</div>'
+        errors_html = '<div class="errors-empty">' + t["no_errors"] + '</div>'
 
     st.markdown(
         '<div class="full-panel content-fade">'
-        '<div class="panel-title">📊 AI Analysis</div>'
+        '<div class="panel-title">' + t["ai_analysis"] + '</div>'
         '<div class="score-big">' + str(score) + '<span style="font-size:18px;color:#475569;">/5</span></div>'
         '<div class="stars" style="margin-top:8px;">' + stars_html + '</div>'
         '<div style="color:' + sat_color + ';font-weight:600;font-size:14px;margin:12px 0;">● ' + satisfaction + '</div>'
-        '<div style="font-size:11px;color:#475569;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;">Type of request</div>'
+        '<div style="font-size:11px;color:#475569;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;">' + t["type_req"] + '</div>'
         '<div class="intent-tag">' + intent + '</div>'
-        '<div style="font-size:11px;color:#475569;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.1em;">JSON data</div>'
+        '<div style="font-size:11px;color:#475569;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.1em;">' + t["json_data"] + '</div>'
         '<div class="json-block">' + json_rows + '</div>'
-        '<div style="font-size:11px;color:#475569;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.1em;">Agent errors</div>'
+        '<div style="font-size:11px;color:#475569;margin:14px 0 8px;text-transform:uppercase;letter-spacing:0.1em;">' + t["agent_errors"] + '</div>'
         + errors_html +
         '</div>',
         unsafe_allow_html=True
