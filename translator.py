@@ -101,4 +101,4 @@ def process_translation(input_file: str, output_file: str):
     print(f"Done. Translated {len(dialogs)} dialogs.")
 
 if __name__ == "__main__":
-    process_translation("chats_dataset.json", "translated.json")
+    process_translation("chats_dataset.json", "chat_dataset_uk.json")
