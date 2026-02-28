@@ -54,14 +54,16 @@
 * `FrontStart.py` - веб-вітрина на основі Streamlit для візуалізації результатів;
 * `requirements.txt` - список залежностей Python;
 * `Dockerfile` - конфігурація для контейнеризації та швидкого розгортання вітрини.
+* `translator.py` - переклад чатів на українську
 
 ## **5. Встановлення та запуск**
     1. Клонувати репозиторій та перейти до папки проєкту.
-    2. Створити файл .env у корені проєкту та додати туди ваш ключ API: GEMINI_API_KEY=ваш_ключ
+    2. Створити файл .env у корені проєкту та додати туди ваш ключ API: GEMINI_API_KEY=ваш_ключ, GEMINI_API_KEY_TRS_ANAL=ваш_ключ
     3. Встановити залежності, зазначені у requirements.txt: pip install -r requirements.txt
     4. Згенерувати датасет запустивши скрипт: python generate.py
-    5. Проаналізувати згенерований JSON-файл: python analyze.py
-    6. Запустити сайт через команду в терміналі: streamlit run FrontStart.py
+    5. Перекласти чати на українську: python translator.py
+    6. Проаналізувати згенеровані JSON-файл: python analyze.py
+    7. Запустити сайт через команду в терміналі: streamlit run FrontStart.py
 
     Якщо Ви плануєте запустити проєкт через Docker з уже готовими JSON-файлами, виконайте дві команди:
     docker build -t skelar_testtask_app .
