@@ -7,7 +7,7 @@ import json
 import time
 
 load_dotenv()
-my_api_key = os.getenv("GEMINI_API_KEY_TRS_GEN") # Рев'юер, по-перше вітаю Вас, по-друге створіть файл .env і покладіть туди свій ключ за зразком із файлу .env.example
+my_api_key = os.getenv("GEMINI_API_KEY") # Рев'юер, по-перше вітаю Вас, по-друге створіть файл .env і покладіть туди свій ключ за зразком із файлу .env.example
 genai.configure(api_key=my_api_key)
 
 model = genai.GenerativeModel('gemini-3-flash-preview')
@@ -61,7 +61,7 @@ def process_chats(input_file: str, output_file: str):
     except FileNotFoundError:
         return
     except Exception as e:
-        print(f"❌ ПОМИЛКА читання JSON: {e}")
+        print(f"ПОМИЛКА читання JSON: {e}")
         return
     
     results = []
@@ -132,4 +132,4 @@ def process_chats(input_file: str, output_file: str):
     print(f"Проаналізовано {len(results)} чатів")
 
 if __name__ == "__main__":
-    process_chats("special_chats.json", "special_anal.json") # змінити назву, коли доробиться генератоор
+    process_chats("chats_dataset.json", "analyzed_chats.json") # змінити назву, коли доробиться генератоор
