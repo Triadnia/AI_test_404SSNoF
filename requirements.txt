@@ -1,1 +1,4 @@
-
+google-generativeai
+pydantic
+python-dotenv
+streamlit
